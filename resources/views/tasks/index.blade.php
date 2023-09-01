@@ -6,6 +6,7 @@
                 {{ __('Tasks') }}
             </h2>
             <x-button @click="openModale = true">add task</x-button>
+            <x-button @click="sort()">Sort</x-button>
         </div>
     </x-slot>
 

@@ -10,6 +10,13 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     public function sort()
+     {
+
+     }
+
+
     public function index()
     {
         $tasks_pending = Task::where('status', 'pending')->oldest('end_date')->get();
