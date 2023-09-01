@@ -11,15 +11,9 @@ class TaskController extends Controller
      * Display a listing of the resource.
      */
 
-     public function sort()
-     {
-
-     }
-
-
     public function index(Request $request)
     {
-        $sortBy = $request->has('sort') ? 'sort_asc':'sort_desc';
+        $sortBy = $request->has('sort_asc') ? 'asc':'desc';
 
         $tasks_pending = Task::where('status', 'pending')->orderBy('end_date', $sortBy)->get();
         $tasks_completed = Task::where('status', 'completed')->orderBy('end_date', $sortBy)->get();
