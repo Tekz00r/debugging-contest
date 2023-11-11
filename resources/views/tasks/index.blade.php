@@ -5,6 +5,14 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight py-2">
                 {{ __('Tasks') }}
             </h2>
+            <div>
+                <x-sort :active="request()->route('order') === 'asc'" href="{{ route('tasks.index', ['order' => 'asc']) }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#4d4847" d="m7 14l5-5l5 5z"/></svg>
+                </x-sort>
+                <x-sort :active="request()->route('order') === 'desc'" href="{{ route('tasks.index', ['order' => 'desc']) }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#4d4847" d="m7 10l5 5l5-5z"/></svg>
+                </x-sort>
+
             <x-button @click="openModale = true">add task</x-button>
             <x-button><a href="{{ route('tasks.index', ['sort_asc' => true]) }}" class="btn btn-primary">Sort by asc</a></x-button>
             <x-button><a href="{{ route('tasks.index', ['sort_desc' => true]) }}" class="btn btn-primary">Sort by desc</a></x-button>

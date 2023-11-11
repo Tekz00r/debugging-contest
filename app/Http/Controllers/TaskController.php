@@ -10,6 +10,7 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
+<<<<<<< Updated upstream
 
     public function index(Request $request)
     {
@@ -18,6 +19,13 @@ class TaskController extends Controller
         $tasks_pending = Task::where('status', 'pending')->orderBy('end_date', $sortBy)->get();
         $tasks_completed = Task::where('status', 'completed')->orderBy('end_date', $sortBy)->get();
         $tasks_in_progress = Task::where('status', 'in progress')->orderBy('end_date', $sortBy)->get();
+=======
+    public function index($order = 'asc')
+    {
+        $tasks_pending = Task::where('status', 'pending')->orderBy('end_date', $order)->get();
+        $tasks_completed = Task::where('status', 'completed')->orderBy('end_date', $order)->get();
+        $tasks_in_progress = Task::where('status', 'in progress')->orderBy('end_date', $order)->get();
+>>>>>>> Stashed changes
 
         return view('tasks.index', compact('tasks_pending', 'tasks_completed', 'tasks_in_progress'));
     }
