@@ -6,6 +6,8 @@
                 {{ __('Tasks') }}
             </h2>
             <x-button @click="openModale = true">add task</x-button>
+            <x-button><a href="{{ route('tasks.index', ['sort_asc' => true]) }}" class="btn btn-primary">Sort by asc</a></x-button>
+            <x-button><a href="{{ route('tasks.index', ['sort_desc' => true]) }}" class="btn btn-primary">Sort by desc</a></x-button>
         </div>
     </x-slot>
 
